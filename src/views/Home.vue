@@ -3,6 +3,7 @@
     <h1>这里是根路由</h1>
     <div>
       <el-button @click="goCar">去CAR页面</el-button>
+      <el-button type="primary" @click="goTree">去TREE页面</el-button>
     </div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
@@ -19,6 +20,11 @@ export default {
     goCar() {
       this.$router.push({
         name: 'car'
+      })
+    },
+    goTree() {
+      this.$router.push({
+        name: 'tree'
       })
     }
   }
