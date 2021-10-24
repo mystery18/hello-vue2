@@ -167,13 +167,6 @@ export default {
     // 用来判断哪个level可以拖拽
     allowDrag (draggingNode) {
       return !(draggingNode.data.level === 1) && !(draggingNode.data.level === 2);
-    },
-    onStart() {
-        this.drag = true;
-    },
-    onEnd(e) {
-      console.log(e.id)
-      this.drag = false;
     }
   }
 }
@@ -182,14 +175,6 @@ export default {
 <style scoped>
 .tree-card {
   padding: 50px;
-}
-.inner {
-  flex: 1;
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ebeef5;
 }
 
 ::v-deep .el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__children{
@@ -200,18 +185,16 @@ export default {
 }
 
 /* leaf none */
-::v-deep .el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__content>.is-leaf{
-  display: none;
-}
 ::v-deep .el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__content{
   padding-left: 0 !important;
 }
+::v-deep .el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__content>.is-leaf{
+  display: none;
+}
 /* leaf none */
 
-/* ::v-deep .el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__children>.el-tree-node.is-expanded{
-  height: 22px;
-} */
-.tree-third-level{
+::v-deep .el-tree-node__children>.el-tree-node.is-expanded>.el-tree-node__children>.el-tree-node.is-expanded{
+  /* height: 22px; */
   padding-left: 50px;
 }
 
