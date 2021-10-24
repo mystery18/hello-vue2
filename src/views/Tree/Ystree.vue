@@ -4,18 +4,22 @@
       <div slot="header" class="clearfix">
         <span>卡片名称</span>
       </div>
-      <!-- node-drop:拖拽成功完成时触发的事件 -->
-      <!-- allow-drop:拖拽时判定目标节点能否被*放置* -->
-      <!-- allow-drag:判断节点能否被拖拽 -->
+      <!-- 事件 node-drop:拖拽成功完成时触发的事件 -->
+      <!-- 事件 node-drag-start:节点开始拖拽时触发的事件 -->
+      <!-- 事件 node-drag-end:拖拽结束时（可能未成功）触发的事件 -->
+      <!-- 属性 allow-drop:拖拽时判定目标节点能否被*放置* -->
+      <!-- 属性 allow-drag:判断节点能否被拖拽 -->
       <el-tree
         :data="data"
         node-key="id"
         :props="defaultProps"
         default-expand-all
         draggable
-        @node-drop="handleDrop"
         :allow-drop="allowDrop"
         :allow-drag="allowDrag"
+        @node-drop="handleDrop"
+        @node-drag-start="handleDragStart"
+        @node-drag-end="handleDragEnd"
       >
       <div class="tree-content-box" slot-scope="{ node }">
         <div v-if="node.level === 1">
@@ -121,7 +125,7 @@ export default {
   },
   methods: {
     handleDragStart (node, ev) {
-      console.log('drag start', node);
+      console.log('drag start', node, ev);
     },
     handleDragEnter (draggingNode, dropNode, ev) {
       console.log('tree drag enter: ', dropNode.label);
@@ -132,9 +136,9 @@ export default {
     handleDragOver (draggingNode, dropNode, ev) {
       console.log('tree drag over: ', dropNode.label);
     },
-    // handleDragEnd (draggingNode, dropNode, dropType, ev) {
-    //   console.log('tree drag end: ', dropNode && dropNode.label, dropType);
-    // },
+    handleDragEnd (draggingNode, dropNode, dropType, ev) {
+      console.log('tree drag end: ', dropNode && dropNode.label, dropType);
+    },
     // 拖拽成功完成时触发的事件
     handleDrop (draggingNode, dropNode, dropType, ev) {
       // console.log('tree drop: ', draggingNode, dropNode.label, dropType, ev);
@@ -151,7 +155,7 @@ export default {
     },
     // 判断能否被放置！！拖拽过程中会触发
     allowDrop (draggingNode, dropNode, type) {
-      console.log('我是allowDrop', draggingNode, dropNode, type)
+      // console.log('我是allowDrop', draggingNode, dropNode, type)
       // 不允许插入
       if(type == 'inner') return false
       // 放入的只能3层，必须进去和出来的level一样
