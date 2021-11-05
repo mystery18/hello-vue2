@@ -4,6 +4,8 @@
       <div slot="header" class="clearfix">
         <span>卡片名称</span>
       </div>
+      <p>我是父组件，这是我的数据：{{ count }}</p>
+      <Child v-model="count" />
       <!-- 事件 node-drop:拖拽成功完成时触发的事件 -->
       <!-- 事件 node-drag-start:节点开始拖拽时触发的事件 -->
       <!-- 事件 node-drag-end:拖拽结束时（可能未成功）触发的事件 -->
@@ -46,7 +48,11 @@
 </template>
 
 <script>
+import Child from './Child'
 export default {
+  components: {
+    Child
+  },
   data () {
     return {
       data: [{
@@ -120,7 +126,8 @@ export default {
         label(data) {
           return data.label
         }
-      }
+      },
+      count: 0
     };
   },
   methods: {
