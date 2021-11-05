@@ -3,7 +3,7 @@
     <p>我是child 子组件，父组件给我的值是这个：{{ value }}</p>
     <el-button @click="changeCount">点我可以改父组件的值</el-button>
     <el-button @click="showSex">student.sex给我出来</el-button>
-    <span v-if="student.sex">性别：{{ student.sex }}</span>
+    <span v-if="student.sex">性别喔：{{ student.sex }}</span>
     <ul>
       <li v-for="item of person" :key="item.id">
         {{ item.id }}-{{ item.name }}-{{ item.age }}--{{ item.is_selected }}
