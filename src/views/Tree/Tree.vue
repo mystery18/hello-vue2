@@ -5,6 +5,19 @@
         <span>卡片名称</span>
         <el-button type="primary" @click="$router.push({ name: 'ystree' })">去YSTREE</el-button>
       </div>
+
+      <span class="remind">
+        <el-badge :value="200" :max="99" class="item">
+          <i class="el-icon-chat-dot-round" style="fontSize: 24px" />
+        </el-badge>
+      </span>
+
+      <el-badge :value="200" :max="99" class="item">
+        <el-button class="share-button" icon="el-icon-chat-dot-round" type="primary"></el-button>
+      </el-badge>
+    
+      <el-divider />
+
       <el-tree
         :data="data"
         node-key="id"
@@ -203,5 +216,14 @@ export default {
 
 ::v-deep .el-tree-node__content {
   height: auto;
+}
+
+/* remind */
+span.remind {
+  display: inline-block;
+  width: 80px;
+  background-color: gainsboro;
+  padding: 20px;
+  border-radius: 10px;
 }
 </style>
