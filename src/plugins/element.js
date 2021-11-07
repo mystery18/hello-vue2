@@ -2,7 +2,23 @@
 import Vue from 'vue'
 
 import 'element-ui/lib/theme-chalk/index.css';
-import { Button, Row, Progress, Carousel, CarouselItem, Popover, Table, TableColumn, Loading, Pagination, Card, Tree, Divider, Badge } from 'element-ui';
+import {
+  Button,
+  Row,
+  Progress,
+  Carousel,
+  CarouselItem,
+  Popover,
+  Table,
+  TableColumn,
+  Loading,
+  Pagination,
+  Card,
+  Tree,
+  Divider,
+  Badge,
+  Input
+} from 'element-ui';
 Vue.use(Button)
 Vue.use(Row)
 Vue.use(Progress)
@@ -17,6 +33,7 @@ Vue.use(Card)
 Vue.use(Tree);
 Vue.use(Divider);
 Vue.use(Badge);
+Vue.use(Input);
 
 // const loading = Loading.service(options);
 // let loadingInstance = Loading.service({
