@@ -127,6 +127,8 @@ export default {
           console.log('update')
           element.value = binding.value
         }
+        // 详细说一下：指令所在的template被重新解析，就会调用。
+        // Vue说过，只要你动了data里的数据，模板就会被重新编译。所以说只要data中任何个数据修改了，update就会被调用，不是说你绑定进来的值修改了才会调用update！
       }
       // 所以，如果你用函数那样简写的形式，相当于只写了bind 和  update，没有写 inserted。
       // 如果你有特殊的需求 如 获取焦点、拿到它的父元素什么的，得写成对象，要写inserted
