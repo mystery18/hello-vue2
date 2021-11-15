@@ -15,6 +15,8 @@
       <el-badge :value="200" :max="99" class="item">
         <el-button class="share-button" icon="el-icon-chat-dot-round" type="primary"></el-button>
       </el-badge>
+
+      <MyInput />
     
       <el-divider />
 
@@ -53,9 +55,11 @@
 
 <script>
 import draggable from 'vuedraggable'
+import MyInput from './MyInput.vue'
 export default {
-   components: {
+  components: {
       draggable,
+      MyInput
   },
   data () {
     return {
