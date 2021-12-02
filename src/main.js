@@ -2,7 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'plugins/element'
+// import 'plugins/element'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 // import request from '@/src/network/request'
 
 // Vue.config.productionTip = false
@@ -16,10 +20,12 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+// 关闭vue的生产提示
 Vue.config.productionTip = false
 
 process.env.NODE_ENV === "development" && require("@/mock")
 
+// 创建vue实例
 new Vue({
   router,
   store,
